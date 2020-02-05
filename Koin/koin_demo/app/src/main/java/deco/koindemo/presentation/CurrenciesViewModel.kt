@@ -6,8 +6,11 @@ import androidx.lifecycle.ViewModel
 import deco.koindemo.data.DataRepositoryFactory
 import deco.koindemo.model.Currency
 
+
 class CurrenciesViewModel constructor(
-    private val dataRepositoryFactory: DataRepositoryFactory
+    private val dataRepositoryFactory: DataRepositoryFactory,
+/*Injection parameter example*/
+    private val jsonString: String
 ) : ViewModel() {
 
     val currenciesLiveData = MutableLiveData<List<Currency>>()
@@ -15,7 +18,7 @@ class CurrenciesViewModel constructor(
     fun observeCurrencies(): LiveData<List<Currency>>{
         return currenciesLiveData
     }
-   fun retrieveCurrencies(jsonString:String){
+   fun retrieveCurrencies(/*jsonString:String*/){
        val data = dataRepositoryFactory.retrieveLocalSource().getCurrencies(jsonString)
 
        currenciesLiveData.postValue(data)

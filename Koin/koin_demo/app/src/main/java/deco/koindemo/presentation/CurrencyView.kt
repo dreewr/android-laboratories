@@ -11,6 +11,7 @@ import deco.koindemo.model.Currency
 import kotlinx.android.synthetic.main.view_currency.view.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
+import org.koin.core.qualifier.named
 
 class CurrencyView @JvmOverloads constructor(
     context: Context,
@@ -19,6 +20,7 @@ class CurrencyView @JvmOverloads constructor(
     : LinearLayout(context, attrs, defStyleAttr), KoinComponent{
 
     val urlHelper: UrlHelper by inject()
+//    val currencyUrl: String =
 
     init{
         View.inflate(context, R.layout.view_currency, this)
@@ -30,7 +32,7 @@ class CurrencyView @JvmOverloads constructor(
 
         /*Comportamento da view quando clicada*/
         setOnClickListener{
-            urlHelper.launchUrl(context, Uri.parse("https://coinmarketcap.com/currencies/${currency.slug}"))
+             urlHelper.launchCurrencyUrl(context,currency.slug)
         }
     }
 }

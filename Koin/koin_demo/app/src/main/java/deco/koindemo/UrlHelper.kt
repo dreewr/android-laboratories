@@ -5,9 +5,13 @@ import android.net.Uri
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 
-class UrlHelper {
+class UrlHelper(private val baseUrl: String) {
 
-    fun launchUrl(context: Context, uri: Uri){
+    fun launchCurrencyUrl(context: Context, slug:String){
+        launchUrl(context, Uri.parse("$baseUrl$slug"))
+    }
+
+    private fun launchUrl(context: Context, uri: Uri){
         val customTabsIntent = CustomTabsIntent.Builder()
             .addDefaultShareMenuItem()
             .setToolbarColor(ContextCompat.getColor(context, R.color.colorPrimary))
