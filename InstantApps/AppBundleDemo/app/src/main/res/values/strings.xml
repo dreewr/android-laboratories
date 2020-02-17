@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">AppBundleDemo</string>
-    <string name="title_dynamicfeature">Instant Dynamic Feature</string>
-    <string name="title_activity_test">TestActivity</string>
-</resources>
