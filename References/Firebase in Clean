@@ -1,0 +1,64 @@
+Firebase in CleanArchitecture
+
+	× [1] Stack Example - https://stackoverflow.com/questions/62289619/how-to-configure-firebase-in-androids-multi-module-application
+	× [2] Firebase with MVVM -  https://medium.com/firebase-tips-tricks/how-to-work-synchronously-with-firebase-coroutines-livedata-mvvm-clean-architecture-b2f72638ef61
+
+	× [3] Repository example: https://github.com/BracketCove/SpaceNotes/blob/master/data/src/main/java/com/wiseassblog/data/auth/FirebaseAuthRepositoryImpl.kt
+
+	× Download the google-services.json file and paste inside the module(package-name)
+
+	× Add classpath 'com.google.gms:google-services:4.3.3' in the project build.gradle
+
+	× Add firebase dependencies in the module
+		implementation 'com.google.firebase:firebase-firestore:21.4.3'
+		implementation 'com.google.firebase:firebase-firestore-ktx:21.4.3'
+
+
+		//implementation "com.google.firebase:firebase-core:17.2.0"
+		//implementation "com.google.firebase:firebase-auth:19.1.0"
+		implementation "com.google.firebase:firebase-firestore:21.1.1"
+		implementation "com.google.android.gms:play-services-auth:17.0.0"
+
+EventsRepository
+
+fun getEventsDB(): LiveData<MutableList<Event>>{
+val data = MutableLiveData<Mutablelist<Event>>()
+val myList = mutableListOf<Event>()
+
+FirebaseFirestore.getInstance()
+            .collection("events")
+            .get().addOnSuccessListener {
+                // Get results
+                myList.add(results)
+                data.value = myList
+            }.addOnFailureListener{
+                // Handle exceptions
+            }
+  return data
+ }
+
+
+ FirebaseOptions.Builder
+
+ val options = FirebaseOptions.Builder()
+        .setProjectId("my-firebase-project")
+        .setApplicationId("1:27992087142:android:ce3b6448250083d1")
+        .setApiKey("AIzaSyADUe90ULnQDuGShD9W23RDP0xmeDc6Mvw")
+        // .setDatabaseUrl(...)
+        // .setStorageBucket(...)
+        .build()
+
+// Initialize secondary FirebaseApp.
+Firebase.initialize(this /* Context */, options, "secondary")
+
+// Retrieve secondary FirebaseApp.
+val secondary = Firebase.app("secondary")
+// Get the database for the other app.
+val secondaryDatabase = Firebase.database(secondary)
+
+FirebaseFirestore.setLoggingEnabled(true);
+
+approach 1: adicionar firebase no module app
+
+
+approach 2: me livrar do google services plugin

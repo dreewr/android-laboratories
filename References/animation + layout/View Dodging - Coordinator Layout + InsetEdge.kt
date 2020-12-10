@@ -1,0 +1,1 @@
+https://medium.com/@rusinikita/simple-view-dodging-with-coordinatorlayout-f13cc32e0de6

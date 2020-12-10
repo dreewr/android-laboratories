@@ -1,0 +1,43 @@
+Process Death
+
+https://code.luasoftware.com/tutorials/android/android-jetpack-navigation-lost-state-after-navigation/
+
+//no fragment
+
+
+*Observação: model class tem que ser Parcelizável
+Anotar com @Parcelize
+
+
+override fun onSaveInstanceState(outState: Bundle){
+	super.onSaveInstanceState(outState)
+	outState.putParcelableArrayList("my_key", 
+	viewModel.blablabla.value)
+}
+
+
+onCreate(savedInstanceState: Bundle?){
+	super.onCreate(savedInstanceState)
+
+	savedInstanceState?.let{ inState ->
+	(inState["my_key"] as <Tipo do Objeto>?)?.let{
+	myData -> 
+		viewModel.setData(myData)
+	}
+
+	}
+}
+
+
+
+
+//Uma lista é grande, num caso real tu estaria salvando a query em vez do resultado 
+
+
+
+VERSO VERSO VERSO
+
+D                                        A                    Em        		   Bm           A 
+Se ontem eu tava com você, hoje eu to com a Rê, hoje eu tô com a Rê, com a Ressaca de beber pra te esquecer 
+
+PONTE
