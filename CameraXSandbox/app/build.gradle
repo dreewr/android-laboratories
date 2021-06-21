@@ -20,6 +20,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    lintOptions {
+        disable 'RestrictedApi'
+    }
 
     buildTypes {
         release {
