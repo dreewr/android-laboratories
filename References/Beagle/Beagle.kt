@@ -15,7 +15,8 @@ Referências
 
 	- Configurando um serviço no " backend" do BFF 
 		- Exemplo
-			
+		
+		```kotlin	
 			@Service
 			class MyService{
 
@@ -27,7 +28,7 @@ Referências
 				)
 				))
 			}
-
+		```
 
 			//Criar um controller no Spring pra  poder servir essa tela 
 			@RestController 
@@ -157,7 +158,6 @@ Referências
 					}
 				 - Essa renderização poderia ser diferente para um um usuário 2 por exemplo, baseado em alguma parametrização
 
-[3]
 
 
 
