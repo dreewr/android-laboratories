@@ -1,4 +1,5 @@
 Referências
+[todo: atualizar para markdown]
 
 [1] Thiago Souto: https://medium.com/android-dev-br/testes-em-android-test-driven-development-com-activities-e-custom-views-24d08dccd11a
 
